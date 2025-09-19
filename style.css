@@ -1,0 +1,251 @@
+/* Style rétro pixelisé pour le jeu Poop in My Hands */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    color: #00ff00;
+    overflow-x: hidden;
+    overflow-y: auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border: 3px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #ffff00;
+    text-shadow: 3px 3px 0px #ff0000;
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 3px 3px 0px #ff0000, 0 0 10px #ffff00; }
+    to { text-shadow: 3px 3px 0px #ff0000, 0 0 20px #ffff00, 0 0 30px #ffff00; }
+}
+
+.score-display {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    font-size: 12px;
+    color: #00ff00;
+}
+
+#gameCanvas {
+    border: 4px solid #00ff00;
+    background: linear-gradient(to bottom, #87ceeb 0%, #87ceeb 60%, #90ee90 60%, #90ee90 100%);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+    image-rendering: pixelated;
+}
+
+.controls {
+    margin-top: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+}
+
+.controls p {
+    font-size: 10px;
+    margin: 5px 0;
+    color: #00ffff;
+}
+
+.controls button {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    padding: 10px 20px;
+    margin: 10px;
+    background: #ff6600;
+    color: white;
+    border: 3px solid #ff0000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.controls button:hover {
+    background: #ff0000;
+    box-shadow: 0 0 15px #ff0000;
+    transform: scale(1.05);
+}
+
+.controls button:active {
+    transform: scale(0.95);
+}
+
+/* Modal pour Game Over */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    margin: 5% auto;
+    padding: 30px;
+    border: 4px solid #00ff00;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
+    animation: slideIn 0.5s;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+    color: #ff6600;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #ff0000;
+}
+
+.modal-content p {
+    color: #00ffff;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+#high-score-form {
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid #ffff00;
+    border-radius: 8px;
+    background: rgba(255, 255, 0, 0.1);
+}
+
+#player-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    padding: 8px;
+    margin: 10px;
+    background: #000;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#player-name:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+#submit-score, #restart-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    padding: 8px 15px;
+    margin: 5px;
+    background: #00ff00;
+    color: #000;
+    border: 2px solid #00ff00;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#submit-score:hover, #restart-btn:hover {
+    background: #ffff00;
+    border-color: #ffff00;
+    box-shadow: 0 0 15px #ffff00;
+}
+
+#leaderboard {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #ff6600;
+    border-radius: 8px;
+    background: rgba(255, 102, 0, 0.1);
+}
+
+#leaderboard h3 {
+    color: #ff6600;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+#score-list {
+    text-align: left;
+    color: #00ffff;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+#score-list li {
+    margin: 5px 0;
+    padding: 3px;
+    border-bottom: 1px dotted #555;
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+    #gameCanvas {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+    }
+    
+    .header h1 {
+        font-size: 18px;
+    }
+    
+    .score-display {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Animation pour les éléments du jeu */
+.pixel-perfect {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}

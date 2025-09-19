@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poop in My Hands - Jeu Rétro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>💩 POOP IN MY HANDS 💩</h1>
+            <div class="score-display">
+                <span>Score: <span id="current-score">0</span></span>
+                <span>Meilleur Score: <span id="high-score">0</span></span>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div class="controls">
+            <p>🎮 Utilisez les flèches ← → pour bouger</p>
+            <p>🖐️ Attrapez le caca avec vos mains pour marquer des points</p>
+            <p>💀 Évitez que le caca touche votre tête !</p>
+            <button id="startBtn">Commencer le Jeu</button>
+            <button id="pauseBtn" style="display: none;">Pause</button>
+        </div>
+        
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2>🎯 Partie Terminée !</h2>
+                <p>Score Final: <span id="final-score">0</span></p>
+                <div id="high-score-form">
+                    <p>🏆 Nouveau Record ! Entrez votre nom :</p>
+                    <input type="text" id="player-name" maxlength="10" placeholder="Votre nom">
+                    <button id="submit-score">Enregistrer</button>
+                </div>
+                <button id="restart-btn">Rejouer</button>
+                <div id="leaderboard">
+                    <h3>🏆 Tableau des Records</h3>
+                    <ol id="score-list"></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
