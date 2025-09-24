@@ -31,19 +31,19 @@ body {
 
 .header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     background: rgba(0, 0, 0, 0.8);
-    padding: 15px;
+    padding: 10px;
     border: 3px solid #00ff00;
     border-radius: 10px;
     box-shadow: 0 0 20px #00ff00;
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 18px;
     color: #ffff00;
     text-shadow: 3px 3px 0px #ff0000;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     animation: glow 2s ease-in-out infinite alternate;
 }
 
@@ -68,10 +68,10 @@ body {
 }
 
 .controls {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     background: rgba(0, 0, 0, 0.8);
-    padding: 15px;
+    padding: 10px;
     border: 2px solid #00ff00;
     border-radius: 8px;
 }
@@ -228,18 +228,59 @@ body {
 /* Responsive Design */
 @media (max-width: 850px) {
     #gameCanvas {
-        width: 100%;
+        width: 95%;
         max-width: 600px;
         height: auto;
     }
     
     .header h1 {
-        font-size: 18px;
+        font-size: 14px;
+    }
+    
+    .header {
+        margin-bottom: 10px;
+        padding: 8px;
+    }
+    
+    .controls {
+        margin-top: 8px;
+        padding: 8px;
     }
     
     .score-display {
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
+        font-size: 10px;
+    }
+    
+    .game-container {
+        padding: 5px;
+    }
+}
+
+@media (max-height: 750px) {
+    .header h1 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .header {
+        margin-bottom: 10px;
+        padding: 8px;
+    }
+    
+    .controls {
+        margin-top: 8px;
+        padding: 8px;
+    }
+    
+    .controls p {
+        margin: 3px 0;
+        font-size: 9px;
+    }
+    
+    .game-container {
+        padding: 5px;
     }
 }
 

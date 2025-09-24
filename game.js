@@ -412,7 +412,7 @@ class PoopInMyHandsGame {
         
         this.highScores.forEach((score, index) => {
             const li = document.createElement('li');
-            li.innerHTML = `${index + 1}. ${score.name} - ${score.score} pts (${score.date})`;
+            li.innerHTML = `${score.name} - ${score.score} pts (${score.date})`;
             scoreList.appendChild(li);
         });
     }
